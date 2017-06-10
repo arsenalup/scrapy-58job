@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> ECharts</title>
+    <meta charset="utf-8">
+    <!-- 【01】引入 ECharts 文件 -->
+    <script src="echarts.js"></script>
+
+ </head>
+
+    <!-- 【02】为 ECharts 准备一个具备大小（宽高）的 DOM 容器 -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // 【03】基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 【04】指定图表的配置项和数据
+        var option = {
+                    title : {
+                text: '58',
+                subtext: 'job test',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['普工','送餐员','销售代表','服务员','快递员','电话销售','房产经纪人','保安','商务司机','店员/营业员']
+            },
+            series : [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius : '55%',
+                    center: ['50%', '60%'],
+                    data:[
+                        {name:'普工',value:16976},
+                        {name:'送餐员',value:1927},
+                        {name:'销售代表',value:1791},
+                        {name:'服务员',value:1452},
+                        {name:'快递员',value:1196},
+                        {name:'电话销售',value:1138},
+                        {name:'房产经纪人',value:1004},
+                        {name:'保安',value:746},
+                        {name:'商务司机',value:718},
+                        {name:'店员/营业员',value:614},
+                        {name:'其他',value:10925},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        // 【05】使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+ <body>
+
+ </body>
+</html>
